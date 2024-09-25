@@ -1,0 +1,39 @@
+databases:
+  - connection_name: 
+    db_engine: 
+    db_user: 
+    db_pass: 
+    db_host: 
+    db_port: 
+    db_name: 
+    allow_ctas: 
+    allow_cvas: 
+    allow_dml: 
+    allow_run_async: 
+    expose_in_sqllab: 
+
+  - connection_name: 
+    db_engine: 
+    db_user: 
+    db_pass: 
+    db_host: 
+    db_port: 
+    db_name: 
+    allow_ctas: 
+    allow_cvas: 
+    allow_dml: 
+    allow_run_async: 
+    expose_in_sqllab: 
+
+  - connection_name: 
+    db_engine: 
+    db_user: 
+    db_pass: 
+    db_host: 
+    db_port: 
+    db_name: 
+    allow_ctas: 
+    allow_cvas: 
+    allow_dml: 
+    allow_run_async: 
+    expose_in_sqllab: 
