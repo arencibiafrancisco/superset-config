@@ -106,7 +106,7 @@ OAUTH_PROVIDERS = [
             "client_secret": "XXXXXXXX",  # Your client_secret
             "api_base_url": "https://login.microsoftonline.com/376dba7a-f699-4f0c-b712-1ccdef90a29e/oauth2",
             "client_kwargs": {
-                "scope": "openid profile email User.Read",
+                "scope": "openid profile email User.Read User.ReadBasic.All",
                 "code_challenge_method": "S256",
             },
             "request_token_url": None,
