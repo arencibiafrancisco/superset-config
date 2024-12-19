@@ -20,6 +20,7 @@ import os
 from celery.schedules import crontab
 from flask_caching.backends.filesystemcache import FileSystemCache
 from flask_appbuilder.security.manager import AUTH_OAUTH
+from custom_sso_security_manager import CustomSsoSecurityManager
 
 logger = logging.getLogger()
 
@@ -86,36 +87,39 @@ SQLLAB_CTAS_NO_LIMIT = True
 
 # Authentication configuration
 AUTH_TYPE = AUTH_OAUTH
-AUTH_USER_OAUTH_USERNAME = "email"  # Use the email field for identifying users
+ALLOW_LOCAL_USER_LOGIN = True
+AUTH_USER_OAUTH_USERNAME = "upn"  # Use the email field for identifying users
 AUTH_USER_REGISTRATION = True
-#AUTH_USER_REGISTRATION_ROLE = "Admin"  # Rol predeterminado
-#AUTH_ROLES_MAPPING = {
-#"superset_users": ["Gamma","Alpha"],
-#"superset_admins": ["Admin"],
-#}
-
-
+AUTH_USER_REGISTRATION_ROLE = "Admin"  # Rol predeterminado
+AUTH_ROLES_MAPPING = {
+"superset_users": ["Gamma","Alpha"],
+"superset_admins": ["Admin"],
+}
 
 OAUTH_PROVIDERS = [
     {
         "name": "azure",
         "icon": "fa-windows",
-        "token_key": "access_token",
+        "token_key": "id_token",
         "remote_app": {
             "client_id": "a84869b2-a768-4e58-8c80-2278c3e75dc4",  # Your client_id
-            "client_secret": "XXXXXXXX",  # Your client_secret
+            "client_secret": "appsecret",  # Your client_secret
             "api_base_url": "https://login.microsoftonline.com/376dba7a-f699-4f0c-b712-1ccdef90a29e/oauth2",
             "client_kwargs": {
-                "scope": "openid profile email User.Read User.ReadBasic.All",
+                "scope": "openid profile email User.Read",
                 "code_challenge_method": "S256",
             },
             "request_token_url": None,
             "access_token_url": "https://login.microsoftonline.com/376dba7a-f699-4f0c-b712-1ccdef90a29e/oauth2/v2.0/token",
             "authorize_url": "https://login.microsoftonline.com/376dba7a-f699-4f0c-b712-1ccdef90a29e/oauth2/v2.0/authorize",
-            "jwks_uri": "https://login.microsoftonline.com/common/discovery/v2.0/keys"
+            "jwks_uri": "https://login.microsoftonline.com/376dba7a-f699-4f0c-b712-1ccdef90a29e/discovery/v2.0/keys",
+
         },
     },
 ]
+
+# Customize security management with the Custom Security Manager
+CUSTOM_SECURITY_MANAGER = CustomSsoSecurityManager
 
 # Optionally import additional configurations for Docker
 try:
