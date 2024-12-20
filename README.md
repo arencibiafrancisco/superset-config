@@ -82,10 +82,13 @@ This configuration file includes all the necessary settings to integrate Superse
 
 ### Register the Azure Application
 Open the Azure portal and navigate to Azure Active Directory > App Registrations.
+
 Configure the application to include the appropriate Redirect URI matching your Superset instance (e.g., https://<YOUR_DOMAIN_OR_IP>/oauth-authorized/azure).
 
 For a detailed example, refer to the screenshots in the repository:
+
 supersetazure1.png: Shows the configuration of Redirect URIs and required permissions.
+
 supersetazure2.png: Highlights other settings for authentication flows and token permissions.
 
 ### Add Azure Credentials
