@@ -25,7 +25,7 @@ Make sure to have the following components installed before running the project:
 ### 1. Clone the repository
 
 ```bash
-git clone https://gitlab.jotelulu.com/data/superset-configs.git
+git clone git@github.com:arencibiafrancisco/superset-config.git
 cd superset-configs
 ```
 
