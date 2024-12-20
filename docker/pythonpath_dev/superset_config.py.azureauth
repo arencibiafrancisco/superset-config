@@ -90,7 +90,7 @@ AUTH_TYPE = AUTH_OAUTH
 ALLOW_LOCAL_USER_LOGIN = True
 AUTH_USER_OAUTH_USERNAME = "upn"  # Use the email field for identifying users
 AUTH_USER_REGISTRATION = True
-AUTH_USER_REGISTRATION_ROLE = "Admin"  # Rol predeterminado
+AUTH_USER_REGISTRATION_ROLE = "Public"  # Rol predeterminado
 AUTH_ROLES_MAPPING = {
 "superset_users": ["Gamma","Alpha"],
 "superset_admins": ["Admin"],
@@ -103,7 +103,7 @@ OAUTH_PROVIDERS = [
         "token_key": "id_token",
         "remote_app": {
             "client_id": "a84869b2-a768-4e58-8c80-2278c3e75dc4",  # Your client_id
-            "client_secret": "appsecret",  # Your client_secret
+            "client_secret": "yoursecret",  # Your client_secret
             "api_base_url": "https://login.microsoftonline.com/376dba7a-f699-4f0c-b712-1ccdef90a29e/oauth2",
             "client_kwargs": {
                 "scope": "openid profile email User.Read",
@@ -117,6 +117,8 @@ OAUTH_PROVIDERS = [
         },
     },
 ]
+
+ENABLE_PROXY_FIX = True
 
 # Customize security management with the Custom Security Manager
 CUSTOM_SECURITY_MANAGER = CustomSsoSecurityManager
